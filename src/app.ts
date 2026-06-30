@@ -9,7 +9,12 @@ export default function createApp() {
 
   app.use(express.json());
   app.use("/api", router);
-  app.use(cors());
+
+  const corsOption = {
+    origin: "*", //Pode colocar os sites que podem acessar
+    methods: ["GET"], //Tipo de método que pode usar
+  };
+  app.use(cors(corsOption));
 
   return app;
 }
